@@ -43,9 +43,7 @@
               APPNAME="nvim-nazozokc"
               CONFIG_DIR="''${XDG_CONFIG_HOME:-$HOME/.config}/$APPNAME"
               DATA_DIR="''${XDG_DATA_HOME:-$HOME/.local/share}/$APPNAME"
-
               export NVIM_APPNAME="$APPNAME"
-
               # 初回だけ config を展開する
               if [ ! -d "$CONFIG_DIR" ]; then
                 echo "[nazozokc.nvim] Initializing config at $CONFIG_DIR ..."
@@ -53,10 +51,8 @@
                 cp -r ${nvimConfig}/. "$CONFIG_DIR/"
                 chmod -R u+w "$CONFIG_DIR"
               fi
-
-              # lazy.nvim はそのまま init.lua の bootstrap に任せる
-              # （$DATA_DIR/lazy/lazy.nvim へ git clone される）
-
+              # lazy.nvim のデータディレクトリを事前に作成
+              mkdir -p "$DATA_DIR"
               exec neovim "$@"
             '';
           };
