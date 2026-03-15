@@ -69,10 +69,10 @@ end, { desc = "Code Action (preview)" })
 -- ---------------------------------------------------------
 -- Substitute.nvim
 -- ---------------------------------------------------------
-map("n", "s", require("substitute").operator, { noremap = true })
-map("n", "ss", require("substitute").line, { noremap = true })
-map("n", "S", require("substitute").eol, { noremap = true })
-map("x", "s", require("substitute").visual, { noremap = true })
+map("n", "s", function() require("substitute").operator() end, { noremap = true })
+map("n", "ss", function() require("substitute").line() end, { noremap = true })
+map("n", "S", function() require("substitute").eol() end, { noremap = true })
+map("x", "s", function() require("substitute").visual() end, { noremap = true })
 
 -- ---------------------------------------------------------
 -- Snacks.nvim (Picker / Zen)
