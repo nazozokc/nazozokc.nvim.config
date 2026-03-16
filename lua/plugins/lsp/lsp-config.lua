@@ -22,7 +22,6 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		lazy = false,
 		event = "BufReadPre",
 		dependencies = {
 			"williamboman/mason.nvim",
