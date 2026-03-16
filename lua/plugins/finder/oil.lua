@@ -13,12 +13,12 @@ return {
 	opts = function()
 		return {
 			use_default_keymaps = false,
-
 			keymaps = {
 				["?"] = "actions.show_help",
 				["gx"] = "actions.open_external",
 				["<CR>"] = "actions.select",
 				["-"] = "actions.parent",
+				["<BS>"] = "actions.parent",
 				["<C-p>"] = "actions.preview",
 				["<esc>"] = "actions.close",
 				["<C-l>"] = "actions.refresh",
@@ -37,11 +37,12 @@ return {
 		require("oil").setup(opts)
 		require("oil-git-status").setup()
 
-		-- Oil 用 autocmd
+			-- Oil 用 autocmd
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = "oil",
 			callback = function()
 				vim.b.snacks_main = true
+				vim.wo.signcolumn = "yes:2"
 			end,
 		})
 	end,
