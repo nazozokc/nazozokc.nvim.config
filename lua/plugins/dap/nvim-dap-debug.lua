@@ -19,7 +19,13 @@ return {
 			{ "<F11>",       function() require("dap").step_into() end,         desc = "DAP Step Into" },
 			{ "<F12>",       function() require("dap").step_out() end,          desc = "DAP Step Out" },
 			{ "<leader>db",  function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
-			{ "<leader>B",   function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end, desc = "Conditional Breakpoint" },
+			{
+			"<leader>B",
+			function()
+				require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+			end,
+			desc = "Conditional Breakpoint",
+		},
 		},
 	},
 
