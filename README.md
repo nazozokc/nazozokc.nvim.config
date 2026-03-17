@@ -83,7 +83,7 @@ nix run github:nazozokc/nazozokc.nvim.config
 LSP・フォーマッターが揃った開発シェルに入れます。
 
 ```bash
-nix develop github:nazozokc/nazozokc.nvim.config
+nix develop github:nazozokc/nazovim
 nvim  # NVIM_APPNAME=nvim-nazozokc で自動起動
 ```
 
@@ -407,13 +407,13 @@ nvim
 
 ```bash
 # 隔離起動（設定を汚さない）
-nix run github:nazozokc/nazozokc.nvim.config
+nix run github:nazozokc/nazovim
 
 # LSP/formatter 完備の開発シェル
-nix develop github:nazozokc/nazozokc.nvim.config
+nix develop github:nazozokc/nazovim
 
 # 設定ファイルだけビルド
-nix build github:nazozokc/nazozokc.nvim.config#config
+nix build github:nazozokc/nazovim
 
 # 対応プラットフォーム
 # x86_64-linux / aarch64-linux / aarch64-darwin
