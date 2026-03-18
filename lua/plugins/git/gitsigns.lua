@@ -5,18 +5,17 @@ return {
 		signs = {
 			add = { text = "▎" },
 			change = { text = "▎" },
-			delete = { text = "" },
-			topdelete = { text = "" },
+			delete = { text = "" },
+			topdelete = { text = "" },
 			changedelete = { text = "▎" },
 		},
-
-		signcolumn = true, -- 左端に常時表示
+		signcolumn = true,
+		numhl = true, -- 行番号に色つける
 		watch_gitdir = {
 			follow_files = true,
 		},
-
-		current_line_blame = false, -- ← 後で有効にする
-		word_diff = true, -- 🔥 単語単位差分
+		current_line_blame = false,
+		word_diff = true,
 		update_debounce = 100,
 	},
 	keys = {
