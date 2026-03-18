@@ -9,17 +9,28 @@ return {
 		end,
 	},
 
-	-- 2. mini.surround（aiに依存するのでaiと同じタイミング）
-	{
-		"echasnovski/mini.surround",
-		version = false,
-		event = "VeryLazy",
-		config = function()
-			require("mini.surround").setup({
-				mappings = { add = "sa", delete = "sd", replace = "sr", update_n_lines = "sn" },
-			})
-		end,
-	},
+-- 2. mini.surround（aiに依存するのでaiと同じタイミング）
+  {
+  	"echasnovski/mini.surround",
+  	version = false,
+  	-- VeryLazy → keys に変更。実際に使うキーを押すまでロードしない
+  	keys = {
+  		{ "sa", desc = "Add surrounding" },
+  		{ "sd", desc = "Delete surrounding" },
+  		{ "sr", desc = "Replace surrounding" },
+  		{ "sn", desc = "Update n_lines" },
+  	},
+  	config = function()
+  		require("mini.surround").setup({
+  			mappings = {
+  				add = "sa",
+  				delete = "sd",
+  				replace = "sr",
+  				update_n_lines = "sn",
+  			},
+  		})
+  	end,
+  },
 
 	-- 3. mini.comment（コメント系は編集時にロード）
 	{
