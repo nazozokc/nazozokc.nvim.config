@@ -112,37 +112,56 @@ return {
 		------------------------------------------------------------------
 		local ns = vim.api.nvim_create_namespace("cmp_snippet_preview")
 
-		cmp.event:on("complete_changed", function(event)
-			vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
+		vim.api.nvim_create_autocmd("CompleteChanged", {
+			callback = function(event)
+				local ok, err = pcall(function()
+					vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
 
-			local entry = event.entry
-			if not entry or entry.source.name ~= "luasnip" then
-				return
-			end
+					local completed = vim.fn.complete_info()
+					if not completed.pum_visible then
+						return
+					end
 
-			local snippet = entry:get_insert_text()
-			if not snippet then
-				return
-			end
+					local selected = completed.selected
+					if selected < 0 then
+						return
+					end
 
-			local preview = snippet
-				:gsub("%$%b{}", function(s)
-					return s:match("{(.-)}") or ""
+					local item = vim.fn.complete_info(selected)
+					if not item or not item.abbr or item.abbr == "" then
+						return
+					end
+
+					local preview = item.abbr
+						:gsub("%$%b{}", function(s)
+							return s:match("{(.-)}") or ""
+						end)
+						:gsub("%$%d+", "")
+						:gsub("\n.*", "")
+
+					local row, col = table.unpack(vim.api.nvim_win_get_cursor(0))
+					row = row - 1
+
+					vim.api.nvim_buf_set_extmark(0, ns, row, col, {
+						virt_text = { { preview, "CmpSnippetPreview" } },
+						virt_text_pos = "eol",
+					})
 				end)
-				:gsub("%$%d+", "")
-				:gsub("\n.*", "")
+				if not ok then
+					vim.notify("[cmp] snippet preview error: " .. tostring(err), vim.log.levels.WARN)
+				end
+			end,
+		})
 
-			local row, col = table.unpack(vim.api.nvim_win_get_cursor(0))
-			row = row - 1
-
-			vim.api.nvim_buf_set_extmark(0, ns, row, col, {
-				virt_text = { { preview, "CmpSnippetPreview" } },
-				virt_text_pos = "eol",
-			})
-		end)
-
-		cmp.event:on("menu_closed", function()
-			vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
-		end)
+		vim.api.nvim_create_autocmd("CompleteChanged", {
+			pattern = { ".*" },
+			callback = function()
+				local completed = vim.fn.complete_info()
+				if completed.pum_visible then
+					return
+				end
+				vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
+			end,
+		})
 	end,
 }

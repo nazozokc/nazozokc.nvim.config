@@ -107,7 +107,7 @@ a neovim distribution]],
 				end
 				vim.diagnostic.enable(false)
 				vim.opt.signcolumn = "no"
-				safe_cmd("IndentBlanklineDisable")
+				safe_cmd("IblDisable")
 			end,
 			on_close = function()
 				local safe_cmd = function(cmd)
@@ -115,7 +115,7 @@ a neovim distribution]],
 				end
 				vim.diagnostic.enable(true)
 				vim.opt.signcolumn = "yes"
-				safe_cmd("IndentBlanklineEnable")
+				safe_cmd("IblEnable")
 			end,
 		},
 	},

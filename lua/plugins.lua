@@ -1,7 +1,8 @@
 return {
 	{ import = "plugins.ai" },
 	{ import = "plugins.completion" },
-	{ import = "plugins.dap" },
+	{ import = "plugins.dap.nvim-dap-debug" },
+	{ import = "plugins.dap.coverage-nvim" },
 	{ import = "plugins.denops" },
 	{ import = "plugins.editor" },
 	{ import = "plugins.finder" },

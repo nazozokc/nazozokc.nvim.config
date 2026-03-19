@@ -1,6 +1,6 @@
 return {
 	"ahmedkhalf/project.nvim",
-	ft = { "js", "ts" },
+	event = "VeryLazy",
 	config = function()
 		require("project_nvim").setup({
 			manual_mode = false,
