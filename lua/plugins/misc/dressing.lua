@@ -71,7 +71,8 @@ return {
 				enabled = true,
 
 				-- Priority list of preferred vim.select implementations
-				backend = { "telescope", "fzf_lua", "fzf", "builtin", "nui" },
+				-- Use snacks.picker for vim.ui.select (conflicts with telescope ui-select)
+				backend = { "snacks", "telescope", "fzf_lua", "fzf", "builtin", "nui" },
 
 				-- Trim trailing `:` from prompt
 				trim_prompt = true,

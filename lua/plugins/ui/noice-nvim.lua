@@ -30,6 +30,11 @@ return {
 				enabled = true, -- vim.notify を有効
 			},
 			lsp = {
+				override = {
+					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+					["vim.lsp.util.stylize_markdown"] = true,
+					["cmp.entry.get_documentation"] = true,
+				},
 				progress = { enabled = true, view = "mini" },
 				hover = { enabled = true },
 				signature = { enabled = true },
