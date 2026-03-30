@@ -1,0 +1,56 @@
+name: "CI: JSON Validate"
+
+on:
+  pull_request:
+    paths:
+      - "**.json"
+      - ".github/workflows/json-validate.yml"
+  push:
+    branches: [main]
+    paths:
+      - "**.json"
+      - ".github/workflows/json-validate.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  json-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Validate JSON files
+        run: |
+          find . -name "*.json" -not -path "./.git/*" | while read -r file; do
+            if ! jq empty "$file" 2>/dev/null; then
+              echo "::error::Invalid JSON in $file"
+              exit 1
+            fi
+            echo "✓ $file is valid JSON"
+          done
+
+  lazy-lock-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Check lazy-lock.json changes
+        run: |
+          if git diff --name-only HEAD^ HEAD | grep -q "lazy-lock.json"; then
+            echo "lazy-lock.json has been modified"
+            if ! jq empty lazy-lock.json 2>/dev/null; then
+              echo "::error::lazy-lock.json is invalid JSON"
+              exit 1
+            fi
+            echo "✓ lazy-lock.json is valid"
+          else
+            echo "lazy-lock.json not modified in this PR"
+          fi
