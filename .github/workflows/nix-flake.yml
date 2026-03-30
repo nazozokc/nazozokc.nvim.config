@@ -1,0 +1,56 @@
+name: "CI: Nix Flake Check"
+
+on:
+  pull_request:
+    paths:
+      - "flake.nix"
+      - "flake.lock"
+      - ".github/workflows/nix-flake.yml"
+  push:
+    branches: [main]
+    paths:
+      - "flake.nix"
+      - "flake.lock"
+      - ".github/workflows/nix-flake.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  nix-flake-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v21
+
+      - name: Cache Nix store
+        uses: DeterminateSystems/magic-nix-cache-action@v8
+
+      - name: Check flake inputs
+        run: |
+          nix flake check --no-write-lock-file --print-build-logs 2>&1 | tee /tmp/nix-flake-check.log
+
+      - name: Build default package
+        run: |
+          nix build .#default --print-build-logs
+
+      - name: Build config package
+        run: |
+          nix build .#config --print-build-logs
+
+      - name: Verify devShell
+        run: |
+          nix develop --command true --print-build-logs
+
+      - name: Upload logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: nix-flake-check-logs
+          path: /tmp/nix-flake-check.log

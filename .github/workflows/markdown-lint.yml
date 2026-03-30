@@ -1,0 +1,48 @@
+name: "CI: Markdown Lint"
+
+on:
+  pull_request:
+    paths:
+      - "**.md"
+      - ".github/workflows/markdown-lint.yml"
+  push:
+    branches: [main]
+    paths:
+      - "**.md"
+      - ".github/workflows/markdown-lint.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  markdown-lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v21
+
+      - name: Run markdownlint
+        run: |
+          nix shell nixpkgs#markdownlint-cli2 --command \
+            markdownlint-cli2 "**/*.md" "#template" "#.github/**"
+
+  spell-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v21
+
+      - name: Run cspell
+        run: |
+          nix shell nixpkgs#cspell --command \
+            cspell "**/*.md" --no-progress --show-suggestions
