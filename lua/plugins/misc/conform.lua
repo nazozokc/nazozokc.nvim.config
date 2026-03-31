@@ -2,7 +2,7 @@ return {
 	"stevearc/conform.nvim",
 	event = "BufWritePre",
 	opts = {
-		format_on_save = { timeout_ms = 1000, lsp_fallback = true },
+		format_on_save = { timeout_ms = 1000, lsp_format = "fallback" },
 		formatters_by_ft = {
 			lua = { "stylua" },
 			javascript = { "prettier" },
@@ -20,7 +20,7 @@ return {
 		{
 			"<leader>f",
 			function()
-				require("conform").format({ async = true, lsp_fallback = true })
+				require("conform").format({ async = true, lsp_format = "fallback" })
 			end,
 			desc = "Format buffer",
 		},
