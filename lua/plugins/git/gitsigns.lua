@@ -6,7 +6,7 @@ return {
 			signs = {
 				add = { text = "▎" },
 				change = { text = "▎" },
-				delete = { text = "▎" },
+				delete = { text = "▎" }, -- すべて同じアイコンに統一
 				topdelete = { text = "▎" },
 				changedelete = { text = "▎" },
 			},
@@ -19,7 +19,7 @@ return {
 				follow_files = true,
 			},
 
-			current_line_blame = false,
+			current_line_blame = false, -- デフォルトで無効
 			word_diff = false,
 			update_debounce = 100,
 
@@ -28,7 +28,7 @@ return {
 			},
 		})
 
-		-- VSCode-style keymaps
+		-- キーマップ
 		vim.keymap.set("n", "]c", function()
 			require("gitsigns").next_hunk()
 		end)

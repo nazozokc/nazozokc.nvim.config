@@ -75,9 +75,7 @@ local map = vim.keymap.set
 -- UI / Toggle
 -- ---------------------------------------------------------
 map("n", "<leader>t", ":ToggleTerm<CR>", { desc = "Toggle terminal" })
-map("n", "<leader>c", function()
-	require("oil").open(vim.fn.expand("$HOME") .. "/dotfiles")
-end, { desc = "Open dotfiles in Oil" })
+map("n", "<leader>c", ":Oil $HOME/dotfiles<CR>", { desc = "Open dotfiles in Oil" })
 map("n", "<leader>so", ":AerialToggle!<CR>", { desc = "Toggle Aerial" })
 map("n", "<F2>", function()
 	require("snacks").zen.toggle()
@@ -93,10 +91,6 @@ map("n", "gd", "<cmd>Lspsaga goto_definition<CR>", { desc = "Go to Definition" }
 map("n", "<leader>ca", function()
 	require("actions-preview").code_actions()
 end, { desc = "Code Action (preview)" })
-
--- ---------------------------------------------------------
--- Substitute.nvim
--- ---------------------------------------------------------
 
 -- ---------------------------------------------------------
 -- Snacks.nvim (Picker / Zen)

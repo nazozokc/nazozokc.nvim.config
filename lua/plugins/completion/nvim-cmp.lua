@@ -109,29 +109,35 @@ return {
 
 		------------------------------------------------------------------
 		-- snippet hover ghost preview
+		-- 選択中のスニペットを行末にプレビュー表示
 		------------------------------------------------------------------
 		local ns = vim.api.nvim_create_namespace("cmp_snippet_preview")
 
 		vim.api.nvim_create_autocmd("CompleteChanged", {
 			callback = function()
 				local ok, err = pcall(function()
-					vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
-
 					local completed = vim.fn.complete_info()
+
+					-- ポップアップが表示されていない場合はクリア
 					if not completed.pum_visible then
+						vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
 						return
 					end
 
+					-- 未選択の場合はクリア
 					local selected = completed.selected
 					if selected < 0 then
+						vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
 						return
 					end
 
 					local item = vim.fn.complete_info(selected)
 					if not item or not item.abbr or item.abbr == "" then
+						vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
 						return
 					end
 
+					-- スニペットのプレビューを生成（場所ホルダーを除去）
 					local preview = item.abbr
 						:gsub("%$%b{}", function(s)
 							return s:match("{(.-)}") or ""
@@ -150,17 +156,6 @@ return {
 				if not ok then
 					vim.notify("[cmp] snippet preview error: " .. tostring(err), vim.log.levels.WARN)
 				end
-			end,
-		})
-
-		vim.api.nvim_create_autocmd("CompleteChanged", {
-			pattern = { ".*" },
-			callback = function()
-				local completed = vim.fn.complete_info()
-				if completed.pum_visible then
-					return
-				end
-				vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
 			end,
 		})
 	end,
