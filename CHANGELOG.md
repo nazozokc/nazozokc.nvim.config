@@ -1,3 +1,8 @@
+# NazoVim Changelog
+
+<!-- markdownlint-disable-file MD024 MD013 -->
+<!-- markdownlint-configure-file { "MD024": { "siblings_only": true } } -->
+
 ## [v1.0.7](https://github.com/NazoVim-org/NazoVim/releases/tag/v1.0.7) (2026-04-01)
 
 ### 🐛 Bug Fixes
