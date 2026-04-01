@@ -1,5 +1,5 @@
 {
-  description = "nazozokc's Neovim configuration";
+  description = "NazoVim-org's Neovim configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -41,7 +41,7 @@
           };
 
           # NVIM_APPNAME で完全隔離して起動する wrapped neovim
-          # nix run github:nazozokc/nazozokc.nvim.config で起動可能
+          # nix run github:NazoVim-org/NazoVim で起動可能
           nvim-nazozokc = pkgs.writeShellApplication {
             name = "nvim";
             runtimeInputs = [

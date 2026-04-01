@@ -16,7 +16,7 @@ nazovim は個人設定ベースのディストリビューションですが、
 | 🔌 Plugin Proposal | 新プラグインの追加提案 |
 
 質問・雑談は
-[GitHub Discussions](https://github.com/nazozokc/nazozokc.nvim.config/discussions)
+[GitHub Discussions](https://github.com/NazoVim-org/NazoVim/discussions)
 へどうぞ。
 
 ---
@@ -33,15 +33,15 @@ nazovim は個人設定ベースのディストリビューションですが、
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/nazozokc/nazozokc.nvim.config.git
-cd nazozokc.nvim.config
+git clone https://github.com/NazoVim-org/NazoVim.git
+cd NazoVim
 
 # Nix 環境で起動（LSP / formatter 込み）
 nix develop
 nvim
 
 # Nix なしの場合
-git clone https://github.com/nazozokc/nazozokc.nvim.config.git ~/.config/nvim
+git clone https://github.com/NazoVim-org/NazoVim.git ~/.config/nvim
 nvim
 ```
 

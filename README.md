@@ -10,9 +10,9 @@
 █   █ █   █ █████  ███    █   ███ █   █
 ```
 
-**A personal Neovim distribution by [nazozokc:NazoVim-org](https://github.com/nazozokc)**
+**A personal Neovim distribution by [NazoVim-org](https://github.com/NazoVim-org)**
 
-[![CI](https://github.com/nazozokc/nazozokc.nvim.config/actions/workflows/nvim.yml/badge.svg)](https://github.com/nazozokc/nazozokc.nvim.config/actions/workflows/nvim.yml)
+[![CI](https://github.com/NazoVim-org/NazoVim/actions/workflows/nvim.yml/badge.svg)](https://github.com/NazoVim-org/NazoVim/actions/workflows/nvim.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 ![Neovim](https://img.shields.io/badge/Neovim-0.10%2B-blueviolet?logo=neovim)
 ![Nix](https://img.shields.io/badge/Nix-flake-blue?logo=nixos)
@@ -76,7 +76,7 @@
 ### 方法1: `nix run`（まずは使ってみる人）
 
 ```bash
-nix run github:nazozokc/nazozokc.nvim.config
+nix run github:NazoVim-org/NazoVim
 ```
 
 <!-- markdownlint-disable MD013 -->
@@ -92,7 +92,7 @@ nix run github:nazozokc/nazozokc.nvim.config
 > ```
 
 ```bash
-git clone https://github.com/nazozokc/nazozokc.nvim.config.git ~/.config/nvim
+git clone https://github.com/NazoVim-org/NazoVim.git ~/.config/nvim
 nvim
 ```
 
@@ -394,13 +394,13 @@ return {
 
 ```bash
 # 隔離起動（設定を汚さない）
-nix run github:nazozokc/nazovim
+nix run github:NazoVim-org/NazoVim
 
 # LSP/formatter 完备の開発シェル
-nix develop github:nazozokc/nazovim
+nix develop github:NazoVim-org/NazoVim
 
 # 設定ファイルだけビルド
-nix build github:nazozokc/nazovim
+nix build github:NazoVim-org/NazoVim
 
 # 対応プラットフォーム
 # x86_64-linux / aarch64-linux / aarch64-darwin
@@ -412,7 +412,7 @@ nix build github:nazozokc/nazovim
 
 Issue・PRはお気軽にどうぞ。
 <!-- markdownlint-disable MD013 -->
-質問は [GitHub Discussions](https://github.com/nazozokc/nazozokc.nvim.config/discussions) へ。
+質問は [GitHub Discussions](https://github.com/NazoVim-org/NazoVim/discussions) へ。
 <!-- markdownlint-enable MD013 -->
 
 Issue templateが用意されています:
@@ -425,4 +425,4 @@ Issue templateが用意されています:
 
 ## 📄 License
 
-MIT © [nazozokc](https://github.com/nazozokc)
+MIT © [NazoVim-org](https://github.com/NazoVim-org)

@@ -1,6 +1,6 @@
 # Neovim Configuration
 
-このディレクトリは nazozokc/nazozokc.nvim.config リポジトリの Neovim 設定です。  
+このディレクトリは NazoVim-org/NazoVim リポジトリの Neovim 設定です。  
 lazy.nvim をプラグインマネージャーとして使用しています。
 
 ---
@@ -294,7 +294,7 @@ nvim/
 このリポジトリをクローンし、`~/.config/nvim` にシンボリックリンクを貼って使用します。
 
 ```bash
-git clone https://github.com/nazozokc/nazozokc.nvim.config.git ~/.config/nvim
+git clone https://github.com/NazoVim-org/NazoVim.git ~/.config/nvim
 ```
 
 または、直接このディレクトリを `~/.config/nvim` に配置してください。

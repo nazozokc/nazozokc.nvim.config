@@ -10,9 +10,9 @@
 █   █ █   █ █████  ███    █   ███ █   █
 ```
 
-**A personal Neovim distribution by [nazozokc:NazoVim-org](https://github.com/nazozokc)**
+**A personal Neovim distribution by [NazoVim-org](https://github.com/NazoVim-org)**
 
-[![CI](https://github.com/nazozokc/nazozokc.nvim.config/actions/workflows/nvim.yml/badge.svg)](https://github.com/nazozokc/nazozokc.nvim.config/actions/workflows/nvim.yml)
+[![CI](https://github.com/NazoVim-org/NazoVim/actions/workflows/nvim.yml/badge.svg)](https://github.com/NazoVim-org/NazoVim/actions/workflows/nvim.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 ![Neovim](https://img.shields.io/badge/Neovim-0.10%2B-blueviolet?logo=neovim)
 ![Nix](https://img.shields.io/badge/Nix-flake-blue?logo=nixos)
@@ -81,7 +81,7 @@ Built on the [kanagawa](https://github.com/rebelot/kanagawa.nvim) color scheme a
 ### Option 1: `nix run` (try it without touching your config)
 
 ```bash
-nix run github:nazozokc/nazozokc.nvim.config
+nix run github:NazoVim-org/NazoVim
 ```
 
 <!-- markdownlint-disable MD013 -->
@@ -99,7 +99,7 @@ The configuration is deployed in isolation under `~/.config/nvim-nazozokc`, leav
 > ```
 
 ```bash
-git clone https://github.com/nazozokc/nazozokc.nvim.config.git ~/.config/nvim
+git clone https://github.com/NazoVim-org/NazoVim.git ~/.config/nvim
 nvim
 ```
 
@@ -399,13 +399,13 @@ This distribution is fully managed as a Nix flake.
 
 ```bash
 # Isolated launch (non-destructive)
-nix run github:nazozokc/nazovim
+nix run github:NazoVim-org/NazoVim
 
 # Dev shell with LSP/formatter included
-nix develop github:nazozokc/nazovim
+nix develop github:NazoVim-org/NazoVim
 
 # Build config files only
-nix build github:nazozokc/nazovim
+nix build github:NazoVim-org/NazoVim
 
 # Supported platforms
 # x86_64-linux / aarch64-linux / aarch64-darwin
@@ -417,7 +417,7 @@ nix build github:nazozokc/nazovim
 
 Issues and PRs are always welcome.
 <!-- markdownlint-disable MD013 -->
-For questions, head over to [GitHub Discussions](https://github.com/nazozokc/nazozokc.nvim.config/discussions).
+For questions, head over to [GitHub Discussions](https://github.com/NazoVim-org/NazoVim/discussions).
 <!-- markdownlint-enable MD013 -->
 
 Issue templates are available for:
@@ -430,4 +430,4 @@ Issue templates are available for:
 
 ## 📄 License
 
-MIT © [nazozokc](https://github.com/nazozokc)
+MIT © [NazoVim-org](https://github.com/NazoVim-org)
