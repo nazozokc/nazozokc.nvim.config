@@ -25,7 +25,7 @@ return {
 					{ icon = "󰒲", desc = "Lazy", key = "z", action = ":Lazy" },
 					{ icon = "󰈙", desc = "Oil", key = ".", action = ":Oil" },
 					{ icon = "", desc = "Dotfiles", key = "d", action = ":Config" },
-					{ icon = "󰈙", desc = "Files", key = "f", action = ":Telescope find_files" },
+					{ icon = "󰈙", desc = "Files", key = "f", action = function() require("snacks").picker.files() end },
 					{ icon = "󰅚", desc = "Quit", key = "q", action = ":qa" },
 				},
 				header = [[

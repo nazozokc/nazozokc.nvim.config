@@ -9,7 +9,7 @@ return {
 	},
 	{
 		"zbirenbaum/copilot-cmp",
-		cmd = { "Copilot", "CopilotChat" },
+		event = "InsertEnter",
 		config = function()
 			require("copilot_cmp").setup({})
 		end,

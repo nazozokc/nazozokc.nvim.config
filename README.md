@@ -35,12 +35,6 @@
 
 ---
 
-## 🖼️ Screenshots
-
-> _Coming soon_
-
----
-
 ## 🚀 Features
 
 <!-- markdownlint-disable MD013 -->

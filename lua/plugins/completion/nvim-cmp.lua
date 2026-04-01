@@ -143,7 +143,7 @@ return {
 						:gsub("%$%d+", "")
 						:gsub("\n.*", "")
 
-					local row, col = table.unpack(vim.api.nvim_win_get_cursor(0))
+					local row, col = vim.unpack(vim.api.nvim_win_get_cursor(0))
 					row = row - 1
 
 					vim.api.nvim_buf_set_extmark(0, ns, row, col, {
