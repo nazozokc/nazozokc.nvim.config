@@ -15,25 +15,25 @@ return {
 		-- Auto activate hlslens on search
 		local opts = { noremap = true, silent = true }
 
-		-- Show count after n/N movement
-		vim.api.nvim_set_keymap(
+		map(
 			"n",
 			"n",
-			[[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-			opts
+			"<Cmd>execute('normal! ' .. v:count1 .. 'n')<CR><Cmd>lua require('hlslens').start()<CR>",
+			{ silent = true, desc = "Next search" }
 		)
-		vim.api.nvim_set_keymap(
+		map(
 			"n",
 			"N",
-			[[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-			opts
+			"<Cmd>execute('normal! ' .. v:count1 .. 'N')<CR><Cmd>lua require('hlslens').start()<CR>",
+			{ silent = true, desc = "Prev search" }
 		)
-
-		-- Same for * and #
-		vim.api.nvim_set_keymap("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], opts)
-		vim.api.nvim_set_keymap("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], opts)
-
-		-- Toggle details with <Leader>l
-		vim.api.nvim_set_keymap("n", "<Leader>l", "<Cmd>lua require('hlslens').toggle_virtual_text()<CR>", opts)
+		map("n", "*", "*<Cmd>lua require('hlslens').start()<CR>", { silent = true, desc = "Search word forward" })
+		map("n", "#", "#<Cmd>lua require('hlslens').start()<CR>", { silent = true, desc = "Search word backward" })
+		map(
+			"n",
+			"<Leader>l",
+			"<Cmd>lua require('hlslens').toggle_virtual_text()<CR>",
+			{ silent = true, desc = "Toggle hlslens virtual text" }
+		)
 	end,
 }

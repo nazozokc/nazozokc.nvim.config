@@ -3,6 +3,22 @@ return {
 	dependencies = { "MunifTanjim/nui.nvim" },
 	ft = { "json" },
 	config = function()
+		local function detect_package_manager()
+			local root =
+				vim.fs.root(0, { "pnpm-lock.yaml", "yarn.lock", "package-lock.json", "bun.lockb", "package.json" })
+			if not root then
+				return "npm"
+			end
+			if vim.fn.filereadable(root .. "/pnpm-lock.yaml") == 1 then
+				return "pnpm"
+			elseif vim.fn.filereadable(root .. "/yarn.lock") == 1 then
+				return "yarn"
+			elseif vim.fn.filereadable(root .. "/bun.lockb") == 1 then
+				return "bun"
+			end
+			return "npm"
+		end
+
 		require("package-info").setup({
 			colors = {
 				up_to_date = "#3C4048",
