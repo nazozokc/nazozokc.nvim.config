@@ -27,6 +27,7 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 		},
 		config = function()
+			local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 			local capabilities = ok
 				and cmp_nvim_lsp.default_capabilities()
 				or vim.lsp.protocol.make_client_capabilities()
