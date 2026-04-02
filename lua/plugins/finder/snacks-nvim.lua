@@ -118,18 +118,10 @@ a neovim distribution]],
 			on_open = function()
 				vim.diagnostic.enable(false)
 				vim.opt.signcolumn = "no"
-				local ok, ibl = pcall(require, "ibl")
-				if ok and ibl then
-					pcall(ibl.disable, 0)
-				end
 			end,
 			on_close = function()
 				vim.diagnostic.enable(true)
 				vim.opt.signcolumn = "yes"
-				local ok, ibl = pcall(require, "ibl")
-				if ok and ibl then
-					pcall(ibl.enable, 0)
-				end
 			end,
 		},
 	},
