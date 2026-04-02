@@ -14,7 +14,7 @@ return {
 			markdown = { "markdownlint" },
 		}
 
-		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+		vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
 			callback = function()
 				lint.try_lint()
 			end,

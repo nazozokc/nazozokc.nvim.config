@@ -3,7 +3,8 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.g.mapleader = " "
-vim.g.background = "dark"
+vim.opt.background = "dark"
+vim.opt.mouse = "a"
 
 vim.opt.swapfile = false
 vim.opt.foldmethod = "expr"

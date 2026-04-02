@@ -21,12 +21,15 @@ lazy.nvim をプラグインマネージャーとして使用しています。
 
 ```text
 nvim/
-├── init.lua              # エントリーポイント・キーマップ
-├── lazy-lock.json        # プラグンバージョンロック
+├── init.lua              # エントリーポイント・lazy.nvim bootstrap
+├── lazy-lock.json        # プラグインバージョンロック
 ├── lua/
-│   ├── plugins.lua       # プラグイン定義（空、plugins/ 以下を自動読み込み）
-│   ├── vim-options.lua   # 基本設定
-│   └── plugins/          # プラグイン設定（各ファイル）
+│   ├── config/
+│   │   ├── options.lua   # 基本設定 (vim.opt)
+│   │   ├── keymaps.lua   # グローバルキーマップ
+│   │   └── autocmds.lua  # オートコマンド
+│   ├── plugins.lua       # プラグインカテゴリの import 定義
+│   └── plugins/          # プラグイン設定（カテゴリ別サブディレクトリ）
 └── template/             # ファイルテンプレート
     ├── js/
     ├── lua/

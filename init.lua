@@ -16,8 +16,6 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/site")
-
 -- =========================================================
 -- Load configs
 -- =========================================================

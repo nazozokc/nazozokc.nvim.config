@@ -8,7 +8,6 @@ return {
 		},
 		init = function()
 			vim.g.barbar_auto_setup = false
-			vim.o.mouse = "a"
 		end,
 		opts = {
 			animation = false,

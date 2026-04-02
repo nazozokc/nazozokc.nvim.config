@@ -1,7 +1,7 @@
 -- plugins/trouble.lua
 return {
 	"folke/trouble.nvim",
-	event = "InsertEnter",
+	event = "VeryLazy",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	cmd = { "Trouble", "TroubleToggle" },
 	keys = {
@@ -17,12 +17,6 @@ return {
 		multiline = true,
 		indent_guides = true,
 		win = { position = "right", size = 40 },
-		icons = { -- ←ここをテーブルで指定
-			Error = "",
-			Warning = "",
-			Information = "",
-			Hint = "",
-		},
 	},
 	config = function(_, opts)
 		local trouble = require("trouble")

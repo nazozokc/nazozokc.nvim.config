@@ -41,7 +41,8 @@
     "keymap",
     "Keymap",
     "Keymaps",
-    "healthcheck"
+    "healthcheck",
+    "autocmds"
   ],
   "flagWords": []
 }

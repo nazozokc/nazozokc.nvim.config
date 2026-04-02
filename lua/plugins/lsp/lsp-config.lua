@@ -64,10 +64,6 @@ return {
 
 			vim.lsp.config("clangd", { capabilities = capabilities })
 
-			vim.lsp.config("jdtls", {
-				capabilities = capabilities,
-			})
-
 			vim.lsp.enable({ "nixd" })
 		end,
 	},
