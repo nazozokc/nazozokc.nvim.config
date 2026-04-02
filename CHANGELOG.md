@@ -3,6 +3,16 @@
 <!-- markdownlint-disable-file MD024 MD013 -->
 <!-- markdownlint-configure-file { "MD024": { "siblings_only": true } } -->
 
+## [v1.1.2](https://github.com/NazoVim-org/NazoVim/releases/tag/v1.1.2) (2026-04-02)
+
+### What's Changed
+
+* ci: bump actions/upload-artifact from 4 to 7 by @dependabot[bot] in #65
+* ci: bump actions/checkout from 4 to 6 by @dependabot[bot] in #64
+* Full Changelog: v1.1.1...v1.1.2
+
+---
+
 ## [v1.1.0](https://github.com/NazoVim-org/NazoVim/releases/tag/v1.1.0) (2026-04-02)
 
 ### What's Changed
@@ -14,6 +24,8 @@
 * fix: migrate to new nvim-treesitter API by @nazozokc in <https://github.com/NazoVim-org/NazoVim/pull/61>
 
 **Full Changelog**: <https://github.com/NazoVim-org/NazoVim/compare/v1.0.7...v1.1.0>
+
+---
 
 ## [v1.0.7](https://github.com/NazoVim-org/NazoVim/releases/tag/v1.0.7) (2026-04-01)
 
