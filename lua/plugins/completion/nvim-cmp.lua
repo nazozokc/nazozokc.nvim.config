@@ -101,7 +101,7 @@ return {
 					end
 				end,
 			}),
-sources = {
+			sources = {
 				{ name = "denippet", priority = 1100 },
 				{ name = "copilot", priority = 1050 },
 				{ name = "luasnip", priority = 1000 },
