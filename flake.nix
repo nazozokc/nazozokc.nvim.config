@@ -91,6 +91,10 @@
             packages = with pkgs; [
               neovim_12
               git
+              bun
+              deno
+              nodejs_latest
+              pnpm
 
               # LSP
               lua-language-server
